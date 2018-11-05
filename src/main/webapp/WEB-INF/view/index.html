@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>Index</title>
+    <link rel="stylesheet" type="text/css" href="/css/test.css">
+    <script type="text/javascript" src="/js/jquery.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            // alert("hello");
+            $("#passParam").on("click",function(){
+                var data = {
+                    name:"jerry"
+                };
+                            $.ajax(
+                                {
+                                    url: '/User/facelog',     // 请求地址, 就是你的控制器, 如 test.com/home/index/index
+                                    data: JSON.stringify({ stuID: stuID2 }),   // 需要传送的参数
+                                    type: 'POST',   // 请求方式
+                                    dataType: 'json', // 返回数据的格式, 通常为JSON
+                                    contentType: 'application/json',
+                                    success: function (result) {
+                            window.location.href = result.NextUrl;
+                            msg = result.Msg;
+                            console.log(result); // 请求成功后的回调函数, result 为响应内容
+                        },
+                        error: function () {
+                            console.log('Send Request Fail..'); // 请求失败时的回调函数
+                        }
+                    }
+                );
+            });
+        });
+    </script>
+</head>
+<body>
+<!--<p>Spring MVC based on XML config success!</p>-->
+
+<div class="parent" style="border:5px solid black;">
+    <div class="child" style="border:5px solid black;">
+        <div>点击左侧箭头<br>点击左侧箭头</div>
+    </div>
+</div>
+<div>
+    <a href="/first/moduleAndView"></a>
+    <form action="/first/formAction"></form>
+    <a href="/index/testModelAttribute">Test @ModelAttribute</a>
+
+    <form action="/home/test">
+        <input type="text" value="name">
+        <input type="submit" value="submit">
+    </form>
+
+    <input id="passParam" type="button" value="passParam">
+</div>
+</body>
+</html>

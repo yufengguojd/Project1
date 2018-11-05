@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.5.xsd">
+  <context:component-scan base-package="example"/>
+
+  <!--定义切面 指定拦截方法时 做什么-->
+  <!--<bean id="xmlAopDemoUserLog" class="example.service.aspect.XmlAopDemoUserLog"></bean>-->
+  <!--<aop:config>-->
+    <!--<aop:aspect ref="xmlAopDemoUserLog"> &lt;!&ndash;指定切面&ndash;&gt;-->
+      <!--&lt;!&ndash;定义切点&ndash;&gt;-->
+      <!--&lt;!&ndash;<aop:pointcut id="logpoint" expression="execution(* example.service.user.UserService.GetDemoUser(..))"></aop:pointcut>&ndash;&gt;-->
+      <!--<aop:pointcut id="logpoint" expression="execution(* example.controller.IndexController.GetDemoUser(..))"></aop:pointcut>-->
+      <!--&lt;!&ndash;定义连接点&ndash;&gt;-->
+      <!--<aop:before pointcut-ref="logpoint" method="beforeLog"></aop:before>-->
+      <!--<aop:after pointcut-ref="logpoint" method="afterLog"></aop:after>-->
+      <!--<aop:after-returning pointcut-ref="logpoint" method="afterReturningLog"></aop:after-returning>-->
+      <!--<aop:after-throwing pointcut-ref="logpoint" method="afterThrowingLog"></aop:after-throwing>-->
+      <!--&lt;!&ndash;<aop:around pointcut-ref="logpoint" method="aroundLog"></aop:around>&ndash;&gt;-->
+    <!--</aop:aspect>-->
+  <!--</aop:config>-->
+
+  <!-- 打开aop 注解 -->
+  <aop:aspectj-autoproxy proxy-target-class="true"/>
+</beans>
